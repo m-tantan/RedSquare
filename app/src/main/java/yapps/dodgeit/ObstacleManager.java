@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import java.util.ArrayList;
 
 public class ObstacleManager {
+
     private static final int SAFE_AREA = 120;
     //Higher Index = Lower onscreen = Higher Y value
     private ArrayList<Obstacle> obstacles;

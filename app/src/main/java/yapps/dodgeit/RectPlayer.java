@@ -20,28 +20,28 @@ public class RectPlayer implements GameObject {
     Animation wait;
     Animation walkRight;
     Animation walkLeft;
-    public AnimationManager animManager;
+//    public AnimationManager animManager;
 
     public RectPlayer(Rect rectangle, int color) {
         this.rectangle = rectangle;
         this.color = color;
 
-        BitmapFactory bf = new BitmapFactory();
-        Bitmap holds = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.alienyellow);
-        Bitmap walk_step1 = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.alienyellow_walk1);
-        Bitmap walk_step2 = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.alienyellow_walk2);
-
-        wait = new Animation(new Bitmap[]{holds}, 2);
-        walkRight= new Animation(new Bitmap[]{walk_step1, walk_step2}, 0.5f);
-
-        Matrix m = new Matrix();
-        m.preScale(-1, 1);
-        walk_step1 = Bitmap.createBitmap(walk_step1, 0, 0, walk_step1.getWidth(), walk_step1.getHeight(), m, false);
-        walk_step2 = Bitmap.createBitmap(walk_step2, 0, 0, walk_step2.getWidth(), walk_step2.getHeight(), m, false);
-
-        walkLeft = new Animation(new Bitmap[]{walk_step1, walk_step2}, 0.5f);
-
-        animManager = new AnimationManager(new Animation[] {wait, walkRight, walkLeft});
+//        BitmapFactory bf = new BitmapFactory();
+//        Bitmap holds = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.alienyellow);
+//        Bitmap walk_step1 = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.alienyellow_walk1);
+//        Bitmap walk_step2 = bf.decodeResource(Constants.CURRENT_CONTEXT.getResources(), R.drawable.alienyellow_walk2);
+//
+//        wait = new Animation(new Bitmap[]{holds}, 2);
+//        walkRight= new Animation(new Bitmap[]{walk_step1, walk_step2}, 0.5f);
+//
+//        Matrix m = new Matrix();
+//        m.preScale(-1, 1);
+//        walk_step1 = Bitmap.createBitmap(walk_step1, 0, 0, walk_step1.getWidth(), walk_step1.getHeight(), m, false);
+//        walk_step2 = Bitmap.createBitmap(walk_step2, 0, 0, walk_step2.getWidth(), walk_step2.getHeight(), m, false);
+//
+//        walkLeft = new Animation(new Bitmap[]{walk_step1, walk_step2}, 0.5f);
+//
+//        animManager = new AnimationManager(new Animation[] {wait, walkRight, walkLeft});
     }
 
     public Rect getRectangle() {
@@ -58,34 +58,34 @@ public class RectPlayer implements GameObject {
 
     @Override
     public void draw(Canvas canvas) {
-//        Paint paint = new Paint();
-//        paint.setColor(color);
-//        canvas.drawRect(rectangle, paint);
-        animManager.draw(canvas, rectangle);
+        Paint paint = new Paint();
+        paint.setColor(color);
+        canvas.drawRect(rectangle, paint);
+//        animManager.draw(canvas, rectangle);
     }
-
+//
     @Override
     public void update() {
-        animManager.update();
+
     }
 
     public void update(Point point) {
-        float last_pos = rectangle.left;
+//        float last_pos = rectangle.left;
 
         rectangle.set(point.x - rectangle.width() / 2,
                 point.y - rectangle.height() / 2,
                 point.x + rectangle.width() / 2,
                 point.y + rectangle.height() / 2);
 
-        int state = 0;
-        if (rectangle.left - last_pos > 5) {
-            state = 1;
-        }
-        if (rectangle.left - last_pos < -5) {
-            state = 2;
-        }
-        animManager.playAnim(state);
-        animManager.update();
+//        int state = 0;
+//        if (rectangle.left - last_pos > 5) {
+//            state = 1;
+//        }
+//        if (rectangle.left - last_pos < -5) {
+//            state = 2;
+//        }
+//        animManager.playAnim(state);
+//        animManager.update();
     }
 
 }

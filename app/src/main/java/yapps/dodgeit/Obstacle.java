@@ -20,12 +20,6 @@ public class Obstacle implements GameObject {
     }
 
 
-    public void incrementY(float y) {
-        rectangle.top += y;
-        rectangle.bottom += y;
-        rectangle2.top += y;
-        rectangle2.bottom += y;
-    }
     public Rect getRectangle() {
         return rectangle;
     }
