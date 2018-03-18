@@ -60,9 +60,9 @@ public class ObstacleManager {
         if (playerGap > playerWidth + SAFE_AREA)
             playerGap -= playerGapInObstacles;
         float speed = (float) (Math.sqrt(1 + (currentTime - initTime) / 3120.0f) * (Constants.SCREEN_HEIGHT / 10000.0f));
-//        for (Obstacle ob : obstacles) {
-//            ob.incrementY(speed * elapsedTime);
-//        }
+        for (Obstacle ob : obstacles) {
+            ob.incrementY(speed * elapsedTime);
+        }
 
         if (obstacles.get(obstacles.size() - 1).getRectangle().top >= Constants.SCREEN_HEIGHT) {
             int xStart = (int) (Math.random() * (Constants.SCREEN_WIDTH - playerGap));
